@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="2379cc2e-75c2-4b1b-aef7-af0f7e785a7e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     articulo.`detalle_articulo` AS articulo_detalle_articulo,
+     articulo.`dimensionLargo` AS articulo_dimensionLargo,
+     articulo.`dimensionAlto` AS articulo_dimensionAlto,
+     articulo.`PrecioVta` AS articulo_PrecioVta,
+     articulo.`precioCosto` AS articulo_precioCosto,
+     articulo.`precioTarjeta` AS articulo_precioTarjeta,
+     articulo.`StockMin` AS articulo_StockMin,
+     articulo.`largoBacha` AS articulo_largoBacha,
+     articulo.`altoBacha` AS articulo_altoBacha,
+     articulo.`anchoBacha` AS articulo_anchoBacha,
+     articulo.`art_impuesto` AS articulo_art_impuesto,
+     articulo.`Stock` AS articulo_Stock,
+     articulo.`FechaAlta` AS articulo_FechaAlta,
+     rubro.`nombreRubro` AS rubro_nombreRubro,
+     tipo.`detalle_tipo` AS tipo_detalle_tipo,
+     marca.`detalleMarca` AS marca_detalleMarca,
+     articulo.`codArticulo` AS articulo_codArticulo
+FROM
+     `rubro` rubro INNER JOIN `articulo` articulo ON rubro.`idRubro` = articulo.`idRubro`
+     INNER JOIN `marca` marca ON articulo.`idMarca` = marca.`idMarca`
+     INNER JOIN `tipo` tipo ON articulo.`idTipo` = tipo.`idTipo`]]>
+	</queryString>
+	<field name="articulo_detalle_articulo" class="java.lang.String"/>
+	<field name="articulo_dimensionLargo" class="java.lang.Double"/>
+	<field name="articulo_dimensionAlto" class="java.lang.Double"/>
+	<field name="articulo_PrecioVta" class="java.lang.Double"/>
+	<field name="articulo_precioCosto" class="java.lang.Double"/>
+	<field name="articulo_precioTarjeta" class="java.lang.Double"/>
+	<field name="articulo_StockMin" class="java.lang.Integer"/>
+	<field name="articulo_largoBacha" class="java.lang.String"/>
+	<field name="articulo_altoBacha" class="java.lang.String"/>
+	<field name="articulo_anchoBacha" class="java.lang.String"/>
+	<field name="articulo_art_impuesto" class="java.lang.String"/>
+	<field name="articulo_Stock" class="java.lang.Integer"/>
+	<field name="articulo_FechaAlta" class="java.sql.Date"/>
+	<field name="rubro_nombreRubro" class="java.lang.String"/>
+	<field name="tipo_detalle_tipo" class="java.lang.String"/>
+	<field name="marca_detalleMarca" class="java.lang.String"/>
+	<field name="articulo_codArticulo" class="java.lang.Integer"/>
+	<background>
+		<band height="575" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="234" width="20" height="241" backcolor="#000000" uuid="9a8c71a0-513e-4aeb-8419-ef0f988390e2"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="72" height="81" backcolor="#666666" uuid="8752f5ab-a923-477a-9727-15e7172fbf30"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="62" height="73" forecolor="#000000" uuid="2d8a7d21-69d7-4322-8b1a-225b7db622d6"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="50" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="0" y="73" width="62" height="1" backcolor="#FFFFFF" uuid="a610e091-416c-45cd-a87b-a3dd3969f716"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="7031f72f-1cc0-44e0-aaa1-ee59912e1d5c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[ARTICULOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="dc64fe16-f7cd-4819-8949-5ce54972b24b"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[REPORTE]]></text>
+			</staticText>
+			<image>
+				<reportElement x="-20" y="-21" width="183" height="104" uuid="0e9c5ee0-5692-4c67-85fe-8060eef737c3"/>
+				<imageExpression><![CDATA["C:\\Users\\Gaston\\Dropbox\\Proyectos-NetBeans\\App_Marmoleria_LaPuntual\\src\\Reportes\\Articulos\\IMG-20180911-WA0027 - copia.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="42" y="5" width="760" height="20" backcolor="#FF0000" uuid="5bc0e4c4-dc58-4df3-82e5-5f26dd526204"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="67" height="15" uuid="dcbd168f-574c-400e-876c-6ecb6b5f3032"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Codigo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="67" y="0" width="179" height="15" uuid="45ca0ad6-a6b9-4ff0-b92c-20bd26ddd7b8"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Detalle]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="246" y="0" width="90" height="15" uuid="6ca40e19-970a-442f-8fea-cf0eee9f4767"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Rubro]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="336" y="0" width="103" height="15" uuid="7ac76750-04d8-4aab-b17a-341e16531787"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Marca]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="439" y="0" width="137" height="15" uuid="a91d128f-3651-4889-813c-dd34ca22e39e"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Tipo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="576" y="0" width="70" height="15" uuid="4fc8e984-403b-4133-8753-13550af4fe70"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Stock]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="646" y="0" width="112" height="15" uuid="43574455-a91e-4510-9e1c-f6c356b20424"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Precio Venta]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="42" y="1" width="760" height="15" uuid="fc874f6f-203a-46b3-8728-f1e28ce42b40"/>
+				<textField>
+					<reportElement x="0" y="0" width="67" height="15" uuid="c2fda365-5b4d-4f75-8d0d-aed5da5fe2d8"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{articulo_codArticulo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="246" y="0" width="90" height="15" uuid="df05551e-4e4b-4c61-b535-3e59988c012f"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{rubro_nombreRubro}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="336" y="0" width="100" height="15" uuid="753b6863-5c4c-4d82-b56e-eaf7df089518"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{marca_detalleMarca}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="439" y="0" width="137" height="15" uuid="c8790089-a92a-4913-8d26-84a6786fed97"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{tipo_detalle_tipo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="576" y="0" width="70" height="15" uuid="d0920ca4-0815-48a3-9794-63c13f1eba57"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{articulo_Stock}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="646" y="0" width="112" height="15" uuid="de59154c-8cf8-402d-a763-637267ec0131"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{articulo_PrecioVta}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="42" y="16" width="760" height="1" uuid="047366d2-5b37-48ee-a9c1-c7cf41c6f64f"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="109" y="0" width="179" height="20" uuid="7655cb92-8eb9-4eeb-b13d-a4622b3c51af"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{articulo_detalle_articulo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="e0952bfa-b2b0-47a4-aa8f-a4bf6144f75b"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
